@@ -26,7 +26,7 @@ SECRET_KEY = 'g#1k*(nr#5n1#)yujoo)fb#x^y%yzl4)%bs09aif%_9faga&47'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'worldwidemp3musical.herokuapp.com'
+    'worldwidemp3musical.herokuapp.com',
     '127.0.0.1'
 
 ]
@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'social_django',
-    
     'django.contrib.staticfiles',
     'crispy_forms',
     'Photo'
@@ -53,7 +51,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 MIDDLEWARE = [
+   
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
