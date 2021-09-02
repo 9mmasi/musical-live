@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!--<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />-->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}" />
+    <title>{{title}}</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="jumbotron justfy-contect-center">
+    <div class="card">
+        <div class="card-body bg-dark">
+            <form method="post" action="">
+                {% csrf_token %}
+                  <h1 class='text-light'>Are you sure you want to delete?</h1><br>
+                  <input class="btn btn-danger" type="submit" value="Yes" />
+                  <a href="/gallery"><div class="btn btn-primary">Cancel</div></a>
+             </form> 
+        </div>
+      </div>
+    </div>
+    </div>
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>

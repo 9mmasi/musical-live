@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Add Photo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!--<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">-->
+
+</head>
+
+<body class="m-5">
+    <div class="container">
+<div class="row">
+    <div class="col col-lg-12">
+        {% if user.is_authenticated %}
+        <p class="mt-5">Hi {{ user.username }}!</p>
+        <p><a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout</a></p>
+
+        {% endif %}
+    </div>
+</div>
+       
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
+                <div class="card">
+
+                    
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="form-group m-3">
+                            
+                           {{forms|crispy}}
+
+                           
+
+                        </div>
+                       
+
+                        
+                        <button type='submit' class="btn btn-primary m-3">Submit</button>
+
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <!--<script src="{% static 'js/bootstrap.min.js' %}"></script>-->
+</body>
+
+</html>
